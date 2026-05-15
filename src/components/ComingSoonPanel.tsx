@@ -17,7 +17,7 @@ export default function ComingSoonPanel({ title }: Props) {
         <p className="mt-1.5 text-sm text-text-soft mb-8">
           This area is still in the works. In the meantime, you can watch our tutorial below.
         </p>
-        
+
         <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-black shadow-lg">
           <video
             src="/demo_video.mov"

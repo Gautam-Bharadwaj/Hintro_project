@@ -7,7 +7,7 @@ A modern, production-ready frontend dashboard built with **Next.js 16**, **TypeS
 ## Demo Video
 
 You can watch the full walkthrough of the dashboard here:
-[Download/Watch Demo Video](./public/demo_video.mov)
+[Download/Watch Demo Video](./public/Tutorial_video.mov)
 
 ---
 
