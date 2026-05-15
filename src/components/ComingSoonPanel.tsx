@@ -20,7 +20,7 @@ export default function ComingSoonPanel({ title }: Props) {
         
         <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-black shadow-lg">
           <video
-            src="/Tutorial_video.mov"
+            src="/demo_video.mov"
             controls
             className="h-full w-full object-contain"
           >
