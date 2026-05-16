@@ -7,6 +7,10 @@ This project is a production-ready dashboard built for the Hintro Frontend Devel
 A full walkthrough of the application, showcasing the features and responsiveness, can be found here:
 [View Demo Video](./public/Tutorial_video.mov)
 
+## Project Preview
+
+![Hintro Dashboard Preview](./public/dashboard_preview.png)
+
 ## Tech Stack
 
 The application leverages a modern frontend architecture focused on performance and type safety:
