@@ -7,6 +7,11 @@ This project is a production-ready dashboard built for the Hintro Frontend Devel
 A full walkthrough of the application, showcasing the features and responsiveness, can be found here:
 [View Demo Video](./public/Tutorial_video.mov)
 
+## Live Deployment
+
+The application is deployed and can be accessed here:
+[https://hintro-project.vercel.app/](https://hintro-project.vercel.app/)
+
 ## Project Preview
 
 ![Hintro Dashboard Preview](./public/dashboard_preview.png)
