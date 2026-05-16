@@ -120,7 +120,7 @@ export default function Sidebar({
         )}
         {typeof usageUsed === "number" && typeof usageLimit === "number" && (
           <div className="hidden lg:block px-3 pt-2 pb-1 text-[11px] text-text-soft">
-            {usageUsed} of {usageLimit} hours used
+            {usageUsed} of {usageLimit} KB files used
           </div>
         )}
         <button

@@ -105,7 +105,7 @@ export default function Topbar({
                     className={`w-full text-left px-3 py-2 text-sm hover:bg-surface-2 ${userId === "u1" ? "font-semibold" : ""
                       }`}
                   >
-                    Jane Smith <span className="text-text-soft">(empty state)</span>
+                    John Doe <span className="text-text-soft">(empty state)</span>
                   </button>
                   <button
                     onClick={() => {

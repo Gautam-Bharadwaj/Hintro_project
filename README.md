@@ -89,7 +89,7 @@ Use the **avatar dropdown → Switch user** to toggle:
 
 | User | State | Description |
 |---|---|---|
-| `u1` | Empty | Jane Smith — no calls, no history, all zeroes |
+| `u1` | Empty | John Doe — no calls, no history, all zeroes |
 | `u2` | Filled | Jane Smith — populated with real API data |
 
 Selection is persisted to `localStorage` key `hintro.userId`.

@@ -76,13 +76,9 @@ export default function DashboardPage() {
 
   if (loggedOut) return <LoggedOutScreen />;
 
-  const apiFirstName = userId === "u1" ? "Jane" : profile?.firstName ?? "";
-  const apiLastName = userId === "u1" ? "Smith" : profile?.lastName ?? "";
-  const defaultFirstName = apiFirstName;
-  const defaultLastName = apiLastName;
-  const firstName = override.firstName || apiFirstName || "Name";
-  const lastName = override.lastName || apiLastName || "";
-  const userName = `${firstName} ${lastName}`.trim() || "User";
+  const firstName = override.firstName || profile?.firstName || (userId === "u1" ? "John" : "Jane");
+  const lastName = override.lastName || profile?.lastName || (userId === "u1" ? "Doe" : "Smith");
+  const userName = `${firstName} ${lastName}`.trim();
   const lastSessionIso = stats?.lastSession?.[0] ?? null;
 
   return (
@@ -100,8 +96,8 @@ export default function DashboardPage() {
           title={NAV_TITLES[active]}
           userName={userName}
           photo={override.photo}
-          defaultFirstName={defaultFirstName}
-          defaultLastName={defaultLastName}
+          defaultFirstName={profile?.firstName || (userId === "u1" ? "John" : "Jane")}
+          defaultLastName={profile?.lastName || (userId === "u1" ? "Doe" : "Smith")}
           onOpenMobileSidebar={() => setMobileNavOpen(true)}
         />
 
