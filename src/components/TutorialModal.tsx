@@ -26,7 +26,7 @@ export default function TutorialModal({ onClose }: Props) {
         </div>
         <div className="relative aspect-video w-full bg-black">
           <video
-            src="/demo_video.mov"
+            src="/Tutorial_video.mov"
             controls
             autoPlay
             className="h-full w-full object-contain"
