@@ -20,11 +20,11 @@ graph LR
     C --> D[Call Insights & AI]
     D --> E[Feedback & History]
     
-    style A fill:#ece9ff,stroke:#7c5cff,stroke-width:1px
-    style B fill:#ece9ff,stroke:#7c5cff,stroke-width:1px
+    style A fill:#ece9ff,stroke:#7c5cff,stroke-width:1px,color:#111114
+    style B fill:#ece9ff,stroke:#7c5cff,stroke-width:1px,color:#111114
     style C fill:#111114,stroke:#111114,color:#fff
-    style D fill:#ece9ff,stroke:#7c5cff,stroke-width:1px
-    style E fill:#ece9ff,stroke:#7c5cff,stroke-width:1px
+    style D fill:#ece9ff,stroke:#7c5cff,stroke-width:1px,color:#111114
+    style E fill:#ece9ff,stroke:#7c5cff,stroke-width:1px,color:#111114
 ```
 
 ## Tech Stack
