@@ -1,128 +1,75 @@
-# Hintro — Frontend Dashboard
+# Hintro Frontend Dashboard
 
-A modern, production-ready frontend dashboard built with **Next.js 16**, **TypeScript**, and **Tailwind CSS v3**, matching the reference design from [hintro_fe](https://github.com/Nandann018-ux/hintro_fe).
-
----
+This project is a production-ready dashboard built for the Hintro Frontend Developer Internship assignment. It implements a clean, responsive user interface using Next.js 16, TypeScript, and Tailwind CSS, integrated with a mock backend to demonstrate real-world state management.
 
 ## Demo Video
 
-You can watch the full walkthrough of the dashboard here:
-[Download/Watch Demo Video](./public/Tutorial_video.mov)
-
----
+A full walkthrough of the application, showcasing the features and responsiveness, can be found here:
+[View Demo Video](./public/Tutorial_video.mov)
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 16 (App Router) |
-| Language | TypeScript |
-| Styling | Tailwind CSS v3 with CSS Variables |
-| State Management | React Context API |
-| HTTP | Native `fetch` with `cache: no-store` |
-| Animations | CSS keyframes (`anim-fade`, `anim-scale`, `anim-slide-left`) |
+The application leverages a modern frontend architecture focused on performance and type safety:
 
----
-
-## Project Structure
-
-```
-src/
-├── app/
-│   ├── globals.css       # CSS variables, Tailwind directives, animations
-│   ├── layout.tsx        # Root layout with all Context Providers
-│   └── page.tsx          # Main Dashboard page
-│
-├── components/
-│   ├── Avatar.tsx          # Color-hashed initials avatar
-│   ├── CallDetailsModal.tsx # Call info sheet
-│   ├── ComingSoonPanel.tsx  # Placeholder for unbuilt sections
-│   ├── FeedbackHistoryModal.tsx  # View/delete past feedback
-│   ├── FeedbackModal.tsx   # Star-rating feedback submission form
-│   ├── LoggedOutScreen.tsx # Shown after logout action
-│   ├── LogoutModal.tsx     # Logout confirmation dialog
-│   ├── ProfileModal.tsx    # Edit name + avatar photo
-│   ├── RecentCalls.tsx     # Day-grouped call list
-│   ├── Sidebar.tsx         # Left nav (desktop sticky + mobile drawer)
-│   ├── StartCallModal.tsx  # New call form
-│   ├── StatCard.tsx        # Single metric card
-│   ├── Topbar.tsx          # Header with user menu & user switcher
-│   ├── TutorialModal.tsx   # Tutorial video modal
-│   ├── UpgradeModal.tsx    # Subscription plan picker
-│   └── icons.tsx           # All SVG icons as React components
-│
-├── context/
-│   ├── FeedbackContext.tsx # Feedback entries stored in localStorage
-│   ├── ProfileContext.tsx  # Profile name/photo overrides in localStorage
-│   ├── ToastContext.tsx    # Global toast notification system
-│   └── UserContext.tsx     # Active userId (u1/u2) in localStorage
-│
-└── lib/
-    ├── api.ts      # fetch wrapper with x-user-id header
-    ├── format.ts   # Duration, relative time, clock, date formatters
-    ├── image.ts    # Client-side image resize via canvas
-    └── types.ts    # TypeScript interfaces for all API shapes
-```
-
----
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v3 with CSS Variables for a consistent design system
+- **State Management**: React Context API for global user and profile state
+- **Network**: Native fetch with custom wrappers for API communication
+- **Animations**: Custom CSS keyframes for smooth transitions and interactions
 
 ## Setup Instructions
 
-```bash
-# 1. Install dependencies
-npm install
+To run the project locally, follow these steps:
 
-# 2. Start development server
-npm run dev
-# → Open http://localhost:3000
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# 3. Build for production
-npm run build
-npm start
-```
+2. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   Open http://localhost:3000 in your browser.
 
----
+3. **Build for production**
+   ```bash
+   npm run build
+   npm start
+   ```
 
-## User States
+## User States and Testing
 
-Use the **avatar dropdown → Switch user** to toggle:
+The dashboard is designed to handle different user profiles and data states. You can switch between users through the avatar dropdown in the top navigation bar.
 
-| User | State | Description |
-|---|---|---|
-| `u1` | Empty | John Doe — no calls, no history, all zeroes |
-| `u2` | Filled | Jane Smith — populated with real API data |
+- **User u1 (John Doe)**: Represents a new user experience. This state demonstrates empty data handlers, including placeholder components and initial state visuals.
+- **User u2 (Jane Smith)**: Represents an active user. This state is populated with randomized data from the API, demonstrating call history, statistics, and usage metrics.
 
-Selection is persisted to `localStorage` key `hintro.userId`.
+The selected user ID is persisted in localStorage under the key `hintro.userId` to maintain state across page refreshes.
 
----
+## API Integration
 
-## API Endpoints Used
+The application communicates with the Hintro mock backend at `https://mock-backend-hintro.vercel.app`. Each request includes the required `x-user-id` header to fetch the appropriate data for the active session.
 
-**Base URL:** `https://mock-backend-hintro.vercel.app`  
-All requests include `x-user-id: u1|u2` header.
+Key endpoints used:
+- User profile data
+- Dashboard overview and usage statistics
+- Aggregate call session metrics
+- Paginated call history
 
-| Method | Path | Description |
-|---|---|---|
-| GET | `/api/auth/profile` | User profile |
-| GET | `/api/auth/dashboard` | Dashboard + usage + subscription |
-| GET | `/api/call-sessions/stats` | Aggregate call stats |
-| GET | `/api/call-sessions?limit=10` | Paginated call sessions |
+## Key Assumptions and Implementation Details
 
----
+- **Client-Side Storage**: User feedback and profile overrides (name and photo) are stored in localStorage rather than a backend database. This ensures persistence during local testing without requiring real authentication.
+- **Image Processing**: Profile photos are resized client-side using Canvas before being stored as base64 data URLs in localStorage, preventing excessive storage usage.
+- **Design System**: Instead of hardcoding colors, the project uses a centralized CSS variable system in globals.css. This ensures visual consistency across all components and simplifies future theme updates.
+- **Responsive Navigation**: The sidebar transitions from a sticky layout on desktop to a mobile-optimized drawer on smaller screens to ensure accessibility across devices.
+- **Mock Data Handling**: The application is built to be resilient to API failures, with error states and loading skeletons implemented where necessary.
 
-## localStorage Keys
+## Project Structure
 
-| Key | Description |
-|---|---|
-| `hintro.userId` | Active user (`u1` or `u2`) |
-| `hintro.feedback.<uid>` | Feedback entries per user |
-| `hintro.profile.<uid>` | Profile name/photo overrides per user |
-
----
-
-## Assumptions
-
-- The project is a **client-rendered** SPA wrapped in Next.js App Router for metadata and SSR scaffolding.
-- No real auth — users are switched locally via the dropdown.
-- Feedback is stored only in `localStorage` (not sent to the backend).
-- Profile photo is resized client-side using a Canvas and stored as a base64 data URL.
+- `src/app`: Root layout, global styles, and the main dashboard page.
+- `src/components`: Reusable UI components including modals, stat cards, and navigation.
+- `src/context`: Global state providers for user identity, feedback storage, and notifications.
+- `src/lib`: Utility functions for API communication, data formatting, and image processing.
+- `src/public`: Static assets including the tutorial video.
