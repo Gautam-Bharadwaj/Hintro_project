@@ -11,6 +11,22 @@ A full walkthrough of the application, showcasing the features and responsivenes
 
 ![Hintro Dashboard Preview](./public/dashboard_preview.png)
 
+## Application Workflow
+
+```mermaid
+graph LR
+    A[User Profile] --> B[Dashboard Overview]
+    B --> C[Start New Call]
+    C --> D[Call Insights & AI]
+    D --> E[Feedback & History]
+    
+    style A fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style B fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style C fill:#111,stroke:#111,color:#fff
+    style D fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style E fill:#f9f9f9,stroke:#333,stroke-width:1px
+```
+
 ## Tech Stack
 
 The application leverages a modern frontend architecture focused on performance and type safety:
